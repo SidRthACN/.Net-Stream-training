@@ -1,0 +1,23 @@
+@model Patient
+@{ ViewData["Title"] = "Patient Details"; }
+
+<h1>Details</h1>
+<h2>Patient</h2>
+<dl class="details">
+    <dt>PatientId</dt><dd>@Model.PatientId</dd>
+    <dt>PatientName</dt><dd>@Model.PatientName</dd>
+    <dt>Age</dt><dd>@CalculateAge(Model.DateOfBirth)</dd>
+    <dt>DateOfBirth</dt><dd>@Model.DateOfBirth.ToString("dd/MM/yyyy")</dd>
+    <dt>ContactNo</dt><dd>@Model.ContactNo</dd>
+</dl>
+<p><a asp-action="Index">Back to Patients</a></p>
+
+@functions {
+    public int CalculateAge(DateTime dob)
+    {
+        var today = DateTime.Today;
+        var age = today.Year - dob.Year;
+        if (dob.Date > today.AddYears(-age)) age--;
+        return age;
+    }
+}

@@ -1,0 +1,25 @@
+@model IEnumerable<Patient>
+@{ ViewData["Title"] = "Patients"; }
+
+<div class="page-head">
+    <h1>Patients</h1>
+    <a class="button" asp-action="Create">Add Patient</a>
+</div>
+
+<table>
+    <thead>
+        <tr><th>PatientId</th><th>PatientName</th><th>DateOfBirth</th><th>ContactNo</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach (var patient in Model)
+    {
+        <tr>
+            <td>@patient.PatientId</td>
+            <td>@patient.PatientName</td>
+            <td>@patient.DateOfBirth.ToString("dd/MM/yyyy")</td>
+            <td>@patient.ContactNo</td>
+            <td><a asp-action="Details" asp-route-id="@patient.PatientId">Patient Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+@model Patient
+@{ ViewData["Title"] = "Create Patient"; }
+
+<h1>Create</h1>
+<h2>Patient</h2>
+<form asp-action="Create" method="post" class="form-card">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <label asp-for="PatientName">Patient Name</label>
+    <input asp-for="PatientName" />
+    <span asp-validation-for="PatientName" class="validation"></span>
+
+    <label asp-for="DateOfBirth">Date of Birth</label>
+    <input asp-for="DateOfBirth" type="date" />
+    <span asp-validation-for="DateOfBirth" class="validation"></span>
+
+    <label asp-for="ContactNo">Contact No</label>
+    <input asp-for="ContactNo" />
+    <span asp-validation-for="ContactNo" class="validation"></span>
+
+    <button class="primary" type="submit">Create</button>
+</form>

@@ -1,0 +1,19 @@
+@model Appointment
+@{ ViewData["Title"] = "Create Appointment"; }
+
+<h1>Create</h1>
+<h2>Appointment</h2>
+<form asp-action="Create" method="post" class="form-card">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <label asp-for="PatientId">Patient</label>
+    <select asp-for="PatientId" asp-items="ViewBag.Patients">
+        <option value="">-- Select Patient --</option>
+    </select>
+    <span asp-validation-for="PatientId" class="validation"></span>
+
+    <label asp-for="AppointmentDate">Appointment Date</label>
+    <input asp-for="AppointmentDate" type="datetime-local" />
+    <span asp-validation-for="AppointmentDate" class="validation"></span>
+
+    <button class="primary" type="submit">Create</button>
+</form>

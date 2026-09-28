@@ -1,0 +1,23 @@
+@model IEnumerable<Appointment>
+@{ ViewData["Title"] = "Appointments"; }
+
+<div class="page-head">
+    <h1>Appointments</h1>
+    <a class="button" asp-action="Create">Add Appointment</a>
+</div>
+<table>
+    <thead>
+        <tr><th>AppointmentId</th><th>PatientId</th><th>AppointmentDate</th><th>Patient</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.AppointmentId</td>
+            <td>@appointment.PatientId</td>
+            <td>@appointment.AppointmentDate.ToString("dd/MM/yyyy hh:mm tt")</td>
+            <td>@appointment.Patient?.PatientName</td>
+        </tr>
+    }
+    </tbody>
+</table>
