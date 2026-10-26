@@ -12,6 +12,8 @@ namespace Module1
         string EmpName;
         string Technology;
 
+
+        // Defauolt Constructor
         public Trainer()
         {
             EmpId = 0;
@@ -20,6 +22,8 @@ namespace Module1
 
         }
 
+
+        // Parameterized Constructor
         public Trainer(int id, string name, string tech)
         {
             EmpId = id;
